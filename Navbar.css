@@ -1,0 +1,213 @@
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* =========================================================
+   1. DESKTOP STYLES (Default / Large screens: > 1024px)
+   Horizontal navbar with Logo, 4 items, & Create Account button
+   ========================================================= */
+.navbar {
+  width: 100%;
+  height: 70px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo a {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.menu-icon {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #1a1a1a;
+  z-index: 1001;
+}
+
+.nav-menu-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #4a5568;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links li a:hover {
+  color: #10b981;
+}
+
+.btn-create-account {
+  background-color: #10b981;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-create-account:hover {
+  background-color: #059669;
+}
+
+/* =========================================================
+   2. TABLET STYLES (768px to 1024px)
+   Full-width green background menu with "X" icon.
+   Items remain horizontal.
+   ========================================================= */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-menu-wrapper {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #10b981; /* Green full-width background */
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 24px 32px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transform: translateY(-150%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-menu-wrapper.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Items stay horizontal */
+  .nav-links {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .nav-links li a {
+    color: #ffffff;
+    font-size: 1rem;
+  }
+
+  .nav-links li a:hover {
+    color: #d1fae5;
+  }
+
+  .btn-create-account {
+    background-color: #ffffff;
+    color: #10b981;
+  }
+
+  .btn-create-account:hover {
+    background-color: #f3f4f6;
+  }
+}
+
+/* =========================================================
+   3. MOBILE STYLES (< 768px)
+   Full-screen green vertical menu with centered items and 
+   "Create Account" at bottom.
+   ========================================================= */
+@media screen and (max-width: 767px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-menu-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #10b981; /* Full-screen green */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 20px;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .nav-menu-wrapper.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-links li a {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+
+  /* "Create Account" button placed towards the bottom */
+  .nav-action {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 280px;
+  }
+
+  .btn-create-account {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    background-color: #ffffff;
+    color: #10b981;
+  }
+
+  .btn-create-account:hover {
+    background-color: #f3f4f6;
+  }
+}
